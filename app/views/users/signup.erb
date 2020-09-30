@@ -7,8 +7,8 @@
 <h1>Create a New Account: </h1>
 
 <form id="form_signup" action="/signup" method="post">
-    <input type="text" name="user[name]" value="<%= @user.name %>" placeholder="Name" pattern="[A-Za-z\s]+" required >
-    <input type="email" name="user[email]" value="<%= @user.email %>" placeholder="Email" required>
-    <input type="password" name="user[password]" value="" placeholder="Password" required>
+    <input type="text" name="user[name]" value="<%= @user.name %>" placeholder="Name" pattern="[A-Za-z\s]+"  >
+    <input type="email" name="user[email]" value="<%= @user.email %>" placeholder="Email" >
+    <input type="password" name="user[password]" value="" placeholder="Password" >
     <input type="submit" value="Submit">
 </form>

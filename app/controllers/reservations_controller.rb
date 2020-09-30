@@ -19,8 +19,8 @@ class ReservationsController < ApplicationController
         @reservation.save
           redirect '/reservations'
         else
-          @errors = @reservation.errors.full_messages
-          redirect 'reservations/new'
+          @errors = ["Date can not be in the past"]
+          erb :"/reservations/new"
         end
       end
 

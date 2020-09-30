@@ -1,0 +1,13 @@
+<h2><%= @reservation.user[:name] %>'s Reservation for <%= @reservation.date.strftime('%a %d %b %Y') %></h2>
+
+<ul>
+    <li>Date: <%= @reservation.date.strftime('%a %d %b %Y') %></li>
+    <li>Time: <%= @reservation.time %></li>
+    <li>Vehicle Type: <%= @reservation.vehicle_type %></li>
+    <li>Pick Up: <%= @reservation.pick_up %></li>
+    <li>Drop Off: <%= @reservation.drop_off %></li>
+</ul><br>
+
+<a href="/reservations/<%= @reservation.id %>/edit">Edit or Delete Reservation</a><br>
+
+<br>

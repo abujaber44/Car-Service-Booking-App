@@ -1,0 +1,17 @@
+<% if @errors %>
+    <% @errors.each do |error| %>
+    <p style="color: red;"><%= error %></p>
+  <% end %>
+<% end %>
+
+<h1>Welcome to Flatiron Car Service</h1>
+<p>Please enter your email adress and password to log in or click sign up to create a new account</p>
+
+<div> 
+<form id="form_login" action="/login" method="post">
+    <input type="text" name="user[email]" value="<%= @user.email %>" placeholder="Email" required>
+    <input type="password" name="user[password]" placeholder="Password" required>
+    <input type="submit" value="Submit">
+</form>
+
+</div>

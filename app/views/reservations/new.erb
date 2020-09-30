@@ -1,0 +1,27 @@
+<% if @errors %>
+  <% @errors.each do |error| %>
+    <p style="color: red;"><%= error %></p>
+  <% end %>
+<% end %>
+
+<h2>Create a New Reservation</h2>
+
+<form action='/reservations' method="post" id="reservation">
+    
+    Date <input type="date" name="reservation[date]" value="<%= @reservation.date %>"required> <br>
+    <br>
+    Time <input type="time" name="reservation[time]" value="<%= @reservation.time %>"required> <br>
+    <br>
+    Vehicle Type <select name="reservation[vehicle_type]" form="reservation" value="<%= @reservation.vehicle_type %>"required> 
+    <option value="" selected disabled hidden>Select a Vehicle Type</option>
+    <option value="Sedan">Sedan</option>
+    <option value="SUV">SUV</option>
+    <option value="Van">Van</option>
+    </select> <br>
+    <br>
+    Pick Up Location <input type="text" name="reservation[pick_up]" value="<%= @reservation.pick_up %>"required> <br>
+    <br>
+    Drop Off Location <input type="text" name="reservation[drop_off]" value="<%= @reservation.drop_off %>"required> <br>
+    <br>
+    <input type="submit" id="submit" value="Create Reservation">
+</form>

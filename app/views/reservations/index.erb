@@ -1,0 +1,22 @@
+
+<% if @reservations.empty? %>
+  <p>Hi <%= @user.name %>, book a new reservation <a href="/reservations/new">here</a></p>
+  <% else %>
+  <h2>All Reservations</h2>
+  <p> To edit or delete a reservation click on the date </p>
+<% end %>
+
+
+<ul>
+<% @reservations.each do |reservation| %>
+        <li><a href="/reservations/<%= reservation.id %>"><%= reservation.date.strftime('%a %d %b %Y') %></a></li>
+            <ul>
+                <li>Time: <%= reservation.time %></li>
+                <li>Vehicle Type: <%= reservation.vehicle_type %></li>
+                <li>Pick Up Location: <%= reservation.pick_up %></li>
+                <li>Drop Off Location: <%= reservation.drop_off %></li>
+            </ul>
+        <br>
+<% end %>
+</ul>
+<br>

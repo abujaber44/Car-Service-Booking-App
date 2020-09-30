@@ -1,0 +1,77 @@
+h1,
+h2,
+h3 {
+    color: black;
+    font-family: verdana;
+    font-size: 20px;
+}
+
+p {
+    color: black;
+    font-family: courier;
+    font-size: 15px;
+}
+
+nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    margin-top: 80px;
+}
+
+nav li {
+    display: inline;
+    padding: 30px;
+}
+
+nav a {
+    padding: 30px;
+    text-decoration: underline;
+    font-family: Cambria, serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: normal;
+    text-transform: normal;
+    letter-spacing: normal;
+    line-height: 1.3em;
+    color: black;
+}
+
+nav a:hover {
+    text-decoration: none;
+    font-family: Cambria, serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: normal;
+    text-transform: normal;
+    letter-spacing: normal;
+    line-height: 1.3em;
+    color: blue;
+}
+
+body {
+    background-image: url("https://nyctripsrides.com/wp-content/uploads/2018/03/sinatra-limousine-service.jpg");
+    background-color: grey;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+#form_login {
+    margin: auto;
+    text-align: left;
+    font-size: 30px;
+}
+
+#form_signup {
+    margin: auto;
+    text-align: left;
+    font-size: 30px;
+}
+
+#form_logout {
+    margin: auto;
+    text-align: left;
+    font-size: 30px;
+}

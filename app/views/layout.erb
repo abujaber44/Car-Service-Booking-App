@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+  <head>
+    <meta charset="utf-8" />
+    <title>Car Service Booking App</title>
+    <link href="/stylesheets/main.css" rel="stylesheet">
+  
+  </head>
+   
+  <body>
+
+    <div class="wrapper">
+
+  
+        <nav>
+            <% if current_user %>
+        <h1>Welcome <%= current_user.name %></h1>
+        <a href="/reservations/new">Book a New Reservation</a>
+        <a href="/reservations">See Your Reservations</a>
+        
+        <form id="form_logout" action="/logout" method="post">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type="submit" value="Logout">
+        </form>
+
+        <% else %>
+        <a href="/signup">Signup</a>
+        <a href="/login">Login</a>
+        <% end %>
+      </nav>
+
+
+        
+        <%= yield %>
+      <%# <footer class="branding">
+        <small>&copy; 2020 <strong>Car Service Booking App</strong></small>
+      </footer> %>
+    </div>
+  </body>
+</html>

@@ -16,11 +16,11 @@ class ReservationsController < ApplicationController
         redirect_if_not_logged_in
         @reservation = current_user.reservations.build(params[:reservation])
         if @reservation.date > Time.now
-        @reservation.save
-          redirect '/reservations'
+           @reservation.save
+           redirect '/reservations'
         else
-          @errors = ["Date can not be in the past"]
-          erb :"/reservations/new"
+           @errors = ["Date can not be in the past"]
+           erb :"/reservations/new"
         end
       end
 
@@ -28,7 +28,7 @@ class ReservationsController < ApplicationController
         redirect_if_not_logged_in
         @reservation = Reservation.find(params[:id])
         if current_user.id == @reservation.user_id
-            erb :'/reservations/show'
+          erb :'/reservations/show'
         else
           redirect '/login'
         end
@@ -38,25 +38,26 @@ class ReservationsController < ApplicationController
         redirect_if_not_logged_in
         @reservation = Reservation.find(params[:id])
         if current_user.id == @reservation.user_id
-            erb :'/reservations/edit'
+           erb :'/reservations/edit'
         else
-          redirect '/login'
+           redirect '/login'
         end
       end 
 
       patch '/reservations/:id' do
         @reservation = Reservation.find(params[:id])
         if @reservation.update(params[:reservation]) 
-        redirect "/reservations/#{@reservation.id}"
+           redirect "/reservations/#{@reservation.id}" 
         else
-          erb :'/reservations/edit'
+           @errors = ["Date can not be in the past"]
+           erb :'/reservations/edit'
         end 
       end
 
       delete '/reservations/:id' do
         redirect_if_not_logged_in
-          @reservation = Reservation.find(params[:id])
-          @reservation.delete
-          redirect '/reservations'
+        @reservation = Reservation.find(params[:id])
+        @reservation.delete
+        redirect '/reservations'
       end 
 end 

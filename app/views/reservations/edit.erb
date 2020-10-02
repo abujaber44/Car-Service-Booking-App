@@ -4,7 +4,7 @@
   <% end %>
 <% end %>
 
-<h2>Edit or Delete Selected Reservation</h2>
+<h2> Reservation for <%= @reservation.date.strftime('%a %d %b %Y') %></h2>
 
 <p>Current Reservation Information: </p>
 Date: <%= @reservation.date.strftime('%a %d %b %Y') %><br>
@@ -37,6 +37,6 @@ Drop Off Location: <%= @reservation.drop_off %><br>
 </form>
 <br>
 <form method="POST" action='/reservations/<%= @reservation.id %>'>
-<input id="hidden" type="hidden" name="_method" value="delete">
+<input id="hidden" type="hidden" name="_method" value="delete">  
 <input type="submit" id="submit" value="Delete Reservation"><br>
 </form>

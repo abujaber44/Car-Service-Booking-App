@@ -1,9 +1,14 @@
 h1,
-h2,
-h3 {
+h2 {
     color: black;
     font-family: verdana;
     font-size: 20px;
+}
+
+h3 {
+    color: grey;
+    font-family: verdana;
+    font-size: 17px;
 }
 
 p {
@@ -52,7 +57,7 @@ nav a:hover {
 
 body {
     background-image: url("https://nyctripsrides.com/wp-content/uploads/2018/03/sinatra-limousine-service.jpg");
-    background-color: grey;
+    background-color: white;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;

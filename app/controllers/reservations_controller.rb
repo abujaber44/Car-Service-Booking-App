@@ -17,7 +17,7 @@ class ReservationsController < ApplicationController
         @reservation = current_user.reservations.build(params[:reservation])
         if @reservation.date > Time.now
            @reservation.save
-           redirect '/reservations'
+           redirect "/reservations/#{@reservation.id}"
         else
            @errors = ["Date can not be in the past"]
            erb :"/reservations/new"
@@ -49,9 +49,8 @@ class ReservationsController < ApplicationController
         if @reservation.update(params[:reservation]) 
            redirect "/reservations/#{@reservation.id}" 
         else
-           @errors = ["Date can not be in the past"]
            erb :'/reservations/edit'
-        end 
+        end
       end
 
       delete '/reservations/:id' do

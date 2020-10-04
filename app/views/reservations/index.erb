@@ -4,12 +4,9 @@
   <% else %>
   <h2>All Reservations</h2>
   <p> To edit or delete a reservation click on the date </p>
-<% end %>
-
-<h3>Future Reservations:</h3> 
+  <h3>Future Reservations:</h3> 
 
 <ul>
-
 <% @reservations.collect do |reservation| %>
 <% if reservation.date >= Time.now %>
         <li><a href="/reservations/<%= reservation.id %>"><%= reservation.date.strftime('%a %d %b %Y') %></a></li>
@@ -28,10 +25,9 @@
 <h3> Past Reservations: </h3>
 
 <ul>
-
 <% @reservations.collect do |reservation| %>
 <% if reservation.date < Time.now %>
-        <li><%= reservation.date.strftime('%a %d %b %Y') %></a></li>
+        <li><a href="/reservations/<%= reservation.id %>"><%= reservation.date.strftime('%a %d %b %Y') %></a></li>
             <ul>
                 <li>Time: <%= reservation.time %></li>
                 <li>Vehicle Type: <%= reservation.vehicle_type %></li>
@@ -41,6 +37,5 @@
         <br>
 <% end %>
 <% end %>
-</ul>
-<br>
-
+ </ul>
+<% end %>

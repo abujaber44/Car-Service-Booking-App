@@ -14,11 +14,12 @@ Pick Up Location: <%= @reservation.pick_up %><br>
 Drop Off Location: <%= @reservation.drop_off %><br>
 <br>
 
+<% if @reservation.date > Time.now %>
 <p>Fill out the following to update your reservation: </p>
 
 <form method="POST" action='/reservations/<%= @reservation.id %>' id="reservation">
 <input id="hidden" type="hidden" name="_method" value="patch">
-    Date <input type="date" name="reservation[date]" value="<%= @reservation.date %>" required><br>
+    Date <input type="date" name="reservation[date]" value="<%= @reservation.date %>" required min= "2020-10-05" > <br>
     <br>
     Time <input type="time" name="reservation[time]" value="<%= @reservation.time %>"required><br>
     <br>
@@ -36,7 +37,15 @@ Drop Off Location: <%= @reservation.drop_off %><br>
     <input type="submit" id="submit" value="Update Reservation"><br>
 </form>
 <br>
+
+<form method="POST" action='/reservations/<%= @reservation.id %>'>
+<input id="hidden" type="hidden" name="_method" value="delete">  
+<input type="submit" id="submit" value="Cancel Reservation"><br>
+</form>
+
+<% else %>
 <form method="POST" action='/reservations/<%= @reservation.id %>'>
 <input id="hidden" type="hidden" name="_method" value="delete">  
 <input type="submit" id="submit" value="Delete Reservation"><br>
 </form>
+<% end %>

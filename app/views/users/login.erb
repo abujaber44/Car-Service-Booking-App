@@ -9,8 +9,8 @@
 
 <div> 
 <form id="form_login" action="/login" method="post">
-    <input type="text" name="user[email]" value="<%= @user.email %>" placeholder="Email" required>
-    <input type="password" name="user[password]" placeholder="Password" required>
+    <input type="email" name="user[email]" value="<%= @user.email %>" placeholder="Email" >
+    <input type="password" name="user[password]" placeholder="Password" >
     <input type="submit" value="Submit">
 </form>
 

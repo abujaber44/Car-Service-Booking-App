@@ -1,4 +1,5 @@
-<h2><%= @reservation.user[:name] %>'s Reservation for <%= @reservation.date.strftime('%a %d %b %Y') %></h2>
+<% if @reservation.date > Time.now %>
+<h2> Your Reservation is Confirmed for <%= @reservation.date.strftime('%a %d %b %Y')%> </h2>
 
 <ul>
     <li>Date: <%= @reservation.date.strftime('%a %d %b %Y') %></li>
@@ -8,6 +9,30 @@
     <li>Drop Off: <%= @reservation.drop_off %></li>
 </ul><br>
 
-<a href="/reservations/<%= @reservation.id %>/edit">Edit or Delete Reservation</a><br>
-
+<p> Rate Estimate: $<%= rand(50..100) %> </p> 
 <br>
+<br>
+
+<a href="/reservations/<%= @reservation.id %>/edit">Edit or Cancel Reservation</a><br>
+<br>
+<a href="/reservations">View All Reservations </a>
+
+<% else %>
+
+<h2>Viewing Reservation for <%= @reservation.date.strftime('%a %d %b %Y')%> </h2>
+
+<ul>
+    <li>Date: <%= @reservation.date.strftime('%a %d %b %Y') %></li>
+    <li>Time: <%= @reservation.time %></li>
+    <li>Vehicle Type: <%= @reservation.vehicle_type %></li>
+    <li>Pick Up: <%= @reservation.pick_up %></li>
+    <li>Drop Off: <%= @reservation.drop_off %></li>
+</ul><br>
+
+<p> Rate: $<%= rand(50..100) %> </p> 
+<br>
+<br>
+
+<a href="/reservations/<%= @reservation.id %>/edit">Delete Reservation</a><br>
+<br>
+<% end %>

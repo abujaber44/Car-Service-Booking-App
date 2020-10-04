@@ -16,7 +16,7 @@
             <% if current_user %>
         <h1>Welcome <%= current_user.name %></h1>
         <a href="/reservations/new">Book a New Reservation</a>
-        <a href="/reservations">See Your Reservations</a>
+        <a href="/reservations">All Reservations</a>
         
         <form id="form_logout" action="/logout" method="post">
           <input type="hidden" name="_method" value="DELETE">

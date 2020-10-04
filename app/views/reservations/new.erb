@@ -4,7 +4,7 @@
   <% end %>
 <% end %>
 
-<h2>Create a New Reservation</h2>
+<h2>New Reservation</h2>
 
 <form action='/reservations' method="post" id="reservation">
     
@@ -23,5 +23,5 @@
     <br>
     Drop Off Location <input type="text" name="reservation[drop_off]" value="<%= @reservation.drop_off %>"required> <br>
     <br>
-    <input type="submit" id="submit" value="Create Reservation">
+    <input type="submit" id="submit" value="Book Reservation">
 </form>

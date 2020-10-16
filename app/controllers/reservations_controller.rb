@@ -46,17 +46,22 @@ class ReservationsController < ApplicationController
 
       patch '/reservations/:id' do
         @reservation = Reservation.find(params[:id])
-        if @reservation.update(params[:reservation]) 
+        if current_user.id == @reservation.user_id
+         @reservation.update(params[:reservation]) 
            redirect "/reservations/#{@reservation.id}" 
         else
-           erb :'/reservations/edit'
+          redirect '/reservations'
         end
       end
 
       delete '/reservations/:id' do
         redirect_if_not_logged_in
         @reservation = Reservation.find(params[:id])
-        @reservation.delete
-        redirect '/reservations'
-      end 
+        if current_user.id == @reservation.user_id  
+          @reservation.delete
+          redirect '/reservations'
+        else
+          redirect '/reservations'
+        end
+      end
 end 

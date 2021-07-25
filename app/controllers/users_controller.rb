@@ -8,7 +8,7 @@ class UsersController < ApplicationController
         if current_user
             redirect '/reservations'
         else
-            #@user = User.new 
+            @user = User.new 
             erb :'/users/signup'
         end 
     end 

@@ -9,6 +9,7 @@ To install this App:
 1. Clone this repository
 2. Run "bundle install" in the terminal
 3. Run rake db:migrate to create the database
+4. Run "shotgun" to start the server
 
 ## Contributing
 
